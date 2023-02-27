@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 function GoodsList() {
     const goods = useSelector(store => store.shop.goods);
-    console.log(goods);
     if (!goods.length) {
         return <h3>Nothing here</h3>;
     }
