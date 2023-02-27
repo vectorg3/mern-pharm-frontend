@@ -24,7 +24,17 @@ function Menu() {
         >
             {isAuth ? (
                 <>
-                    <li className={styles.menu__item}>Заказы</li>
+                    <li className={styles.menu__item}>
+                        <Link
+                            to='/orders'
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                            }}
+                        >
+                            Заказы
+                        </Link>
+                    </li>
                     <li className={styles.menu__item}>Личный кабинет</li>
                     <li className={styles.menu__item} onClick={onClickLogout}>
                         Выйти
