@@ -4,8 +4,8 @@ const instance = axios.create({
     baseURL: process.env.REACT_APP_API_KEY,
 });
 
-instance.interceptors.request.use((config)=> {
+instance.interceptors.request.use((config) => {
     config.headers.Authorization = window.localStorage.getItem('token');
     return config;
-})
+});
 export default instance;
