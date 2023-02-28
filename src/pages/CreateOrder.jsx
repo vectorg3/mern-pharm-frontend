@@ -6,12 +6,13 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { fetchCreateOrder } from '../redux/slices/shop';
 import { Header } from '../components/Header/Header';
-import { Navigate } from 'react-router-dom';
-import { CartItem } from '../components/Cart/CartItem';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import { OrderList } from '../components/Order/OrderList';
 import { createOrderValidate } from '../redux/validators/createOrder';
 
 const CreateOrder = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const isAuth = useSelector(selectIsAuth);
     const MySwal = withReactContent(Swal);
@@ -48,7 +49,7 @@ const CreateOrder = () => {
             MySwal.fire({
                 icon: 'success',
                 title: 'Заказ успешно создан',
-            });
+            }).then(navigate('/orders'));
         }
     };
     return isAuth ? (
@@ -58,7 +59,7 @@ const CreateOrder = () => {
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className='form__wrapper'
-                    style={{width: '100%',}}
+                    style={{ width: '100%' }}
                 >
                     <div className='title'>Оформление заказа</div>
                     <OrderList />
