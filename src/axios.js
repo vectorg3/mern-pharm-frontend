@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://mern-pharm-back.onrender.comuri',
+    baseURL: 'https://mern-pharm-back.onrender.com',
 });
 
 instance.interceptors.request.use((config) => {
