@@ -1,0 +1,109 @@
+.card {
+    width: 100%;
+    min-height: 350px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background-color: #fff;
+    flex-direction: column; /* Размещаем элементы в колонку */
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+    &:hover {
+        box-shadow: 4px 8px 16px rgba(245, 51, 255, 0.2);
+    }
+    &__top {
+        flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+        position: relative;
+        overflow: hidden; /* Скрываем, что выходит за пределы */
+    }
+    &__image {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        padding: 10px;
+    }
+    &__prices {
+        display: flex;
+        margin-bottom: 10px;
+        flex: 0 0 10%; /* Размещаем цены равномерно в две колонки */
+    }
+    &__price::after {
+        content: '₽';
+        margin-left: 4px;
+        position: relative;
+    }
+    &__price_common {
+        font-weight: 400;
+        font-size: 17px;
+        color: #606060;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: flex-end;
+    }
+    &__title {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        color: #414141;
+        &:hover {
+            color: #7b68ee;
+        }
+    }
+    &__add {
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: 17px;
+        color: #7b68ee;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #7b68ee;
+        border-radius: 4px;
+        cursor: pointer; /* Меняем курсор при наведении */
+        transition: 0.2s;
+        margin-top: auto; /* Прижимаем кнопку к низу карточки */
+        &:hover {
+            border: 1px solid #a299d7;
+            background-color: #a299d7;
+            color: #fff;
+        }
+        &:active {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}
+
+/* Контейнер для картинки */
+
+.card__image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+    transition: 0.2s;
+}
+.card__image:hover > img {
+    transform: scale(1.1);
+}
+
+.cards {
+    display: grid;
+    /* Автоматически заполняем на всю ширину grid-контейнера */
+    grid-template-columns: repeat(auto-fill, 285px);
+    width: 100%;
+    justify-content: center;
+    justify-items: center; /* Размещаем карточку по центру */
+    column-gap: 30px; /* Отступ между колонками */
+    row-gap: 40px; /* Отступ между рядами */
+    margin: 0 auto;
+}

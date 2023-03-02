@@ -7,6 +7,7 @@ import { Header } from '../components/Header/Header';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/slices/shop';
 import { selectIsAuth } from '../redux/slices/auth';
+import { Menu } from '../components/Header/Menu';
 
 const Shop = () => {
     const dispatch = useDispatch();
@@ -18,14 +19,11 @@ const Shop = () => {
     }, []);
 
     return (
-        <>
-            <Header />
-            <main className='container content'>
-                {isAuth ? <Cart quantity={order.length} /> : <></>}
-                {loading ? <Preloader /> : <GoodsList />}
-                <CartList />
-            </main>
-        </>
+        <main className='container content'>
+            {isAuth ? <Cart quantity={order.length} /> : <></>}
+            {loading ? <Preloader /> : <GoodsList />}
+            <CartList />
+        </main>
     );
 };
 export { Shop };

@@ -24,7 +24,10 @@ function Menu() {
         >
             {isAuth ? (
                 <>
-                    <li className={styles.menu__item}>
+                    <li
+                        className={styles.menu__item}
+                        onClick={() => dispatch(toggleMenu())}
+                    >
                         <Link
                             to='/orders'
                             style={{
@@ -50,6 +53,7 @@ function Menu() {
                                     color: 'black',
                                 }}
                                 to='/login'
+                                onClick={() => dispatch(toggleMenu())}
                             >
                                 Войти
                             </Link>
@@ -61,6 +65,7 @@ function Menu() {
                                     color: 'black',
                                 }}
                                 to='/register'
+                                onClick={() => dispatch(toggleMenu())}
                             >
                                 Регистрация
                             </Link>

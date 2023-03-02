@@ -173,6 +173,7 @@ nav {
 }
 .goods__item__btn{
     background-color: #7B68EE;
+    margin-right: 1rem;
 }
 .goods__item__btn:hover{
     background-color: #a299d7;

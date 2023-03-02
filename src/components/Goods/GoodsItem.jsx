@@ -3,6 +3,8 @@ import withReactContent from 'sweetalert2-react-content';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/slices/shop';
 import { selectIsAuth } from '../../redux/slices/auth';
+import { Link } from 'react-router-dom';
+import styles from './GoodStyles.module.scss';
 
 function GoodsItem(props) {
     const isAuth = useSelector(selectIsAuth);
@@ -28,7 +30,7 @@ function GoodsItem(props) {
                 icon: 'success',
                 title: item.name + ' успешно добавлен в корзину',
             });
-        }else {
+        } else {
             MySwal.fire({
                 icon: 'error',
                 title: 'Нет доступа',
@@ -37,29 +39,27 @@ function GoodsItem(props) {
         }
     };
     return (
-        <div className='card'>
-            <div
-                className='card-image'
-                style={{ height: 250, overflow: 'hidden' }}
-            >
-                <img src={full_background} alt={name} style={{ padding: 10 }} />
+        <div class={styles.card}>
+            <div class={styles.card__top}>
+                <Link to={`/product/${id}`} class={styles.card__image}>
+                    <img src={full_background} alt={name} />
+                </Link>
             </div>
-            <div className='card-content'>
-                <span className='card-title'>{name}</span>
-                <p>{description}</p>
-            </div>
-            <div className='card-action'>
-                <button
-                    className='btn goods__item__btn'
+            <div class={styles.card__bottom}>
+                <div class={styles.card__prices}>
+                    <div class={styles.card__price_common}>{price} ₽</div>
+                </div>
+                <Link to={`/product/${id}`} class={styles.card__title}>
+                    {name}
+                </Link>
+                <div
+                    class={styles.card__add}
                     onClick={() =>
                         addToBasket({ id, name, price, full_background })
                     }
                 >
-                    Купить
-                </button>
-                <span className='right' style={{ fontSize: '1.5rem' }}>
-                    {price} руб.
-                </span>
+                    В корзину
+                </div>
             </div>
         </div>
     );

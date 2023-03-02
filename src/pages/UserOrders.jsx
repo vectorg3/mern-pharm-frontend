@@ -7,6 +7,7 @@ import { UserOrderItem } from '../components/Order/UserOrderItem';
 import { selectIsAuth } from '../redux/slices/auth';
 import { Navigate } from 'react-router-dom';
 import styles from '../components/Order/OrderStyles.module.scss';
+import { Menu } from '../components/Header/Menu';
 
 const UserOrders = () => {
     const isAuth = useSelector(selectIsAuth);
@@ -20,7 +21,6 @@ const UserOrders = () => {
         <>
             {isAuth ? (
                 <>
-                    <Header />
                     <div className={styles.userOrders__field}>
                         {userOrders.length ? (
                             userOrders.map((item) => (

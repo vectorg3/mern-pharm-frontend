@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAuth, selectIsAuth } from '../redux/slices/auth';
+import { selectIsAuth } from '../redux/slices/auth';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -9,7 +9,8 @@ import { Header } from '../components/Header/Header';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { redirect } from 'react-router-dom';
 import { OrderList } from '../components/Order/OrderList';
-import { createOrderValidate } from '../redux/validators/createOrder';
+import { createOrderValidate } from '../validators/createOrder';
+import { Menu } from '../components/Header/Menu';
 
 const CreateOrder = () => {
     const navigate = useNavigate();
@@ -54,7 +55,6 @@ const CreateOrder = () => {
     };
     return isAuth ? (
         <>
-            <Header />
             <div className='log_form form'>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
