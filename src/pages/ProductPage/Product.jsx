@@ -2,7 +2,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Preloader } from '../../components/Preloader';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/slices/shop';
@@ -75,7 +75,11 @@ function Product() {
                 <div className={styles.product__price}>{product.price} ₽</div>
                 <div className={styles.analogues}>
                     {analogues.map((item) => (
-                        <div key={item._id} className={styles.analogues__item}>
+                        <Link
+                            to={`/product/${item._id}`}
+                            key={item._id}
+                            className={styles.analogues__item}
+                        >
                             <img
                                 src={item.full_background}
                                 alt={item.name}
@@ -84,7 +88,7 @@ function Product() {
                             <div className={styles.analogue__title}>
                                 {item.name}
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
                 <div
