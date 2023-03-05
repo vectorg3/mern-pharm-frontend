@@ -47,7 +47,7 @@ function Product() {
     };
     useEffect(() => {
         axios
-            .get(`https://mern-pharm-back.onrender.com/products/${id}`)
+            .get(`${process.env.REACT_APP_API_URL}/products/${id}`)
             .then((res) => {
                 setProduct(res.data);
                 setLoading(false);
