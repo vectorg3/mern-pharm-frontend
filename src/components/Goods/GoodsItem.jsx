@@ -22,7 +22,7 @@ function GoodsItem(props) {
     const MySwal = withReactContent(Swal);
 
     const dispatch = useDispatch();
-    const { id, name, description, price, full_background } = props;
+    const { _id, name, description, price, full_background } = props;
     const addToBasket = (item) => {
         if (isAuth) {
             dispatch(addToCart(item));
@@ -39,23 +39,23 @@ function GoodsItem(props) {
         }
     };
     return (
-        <div class={styles.card}>
-            <div class={styles.card__top}>
-                <Link to={`/product/${id}`} class={styles.card__image}>
+        <div className={styles.card}>
+            <div className={styles.card__top}>
+                <Link to={`/product/${_id}`} className={styles.card__image}>
                     <img src={full_background} alt={name} />
                 </Link>
             </div>
-            <div class={styles.card__bottom}>
-                <div class={styles.card__prices}>
-                    <div class={styles.card__price_common}>{price} ₽</div>
+            <div className={styles.card__bottom}>
+                <div className={styles.card__prices}>
+                    <div className={styles.card__price_common}>{price} ₽</div>
                 </div>
-                <Link to={`/product/${id}`} class={styles.card__title}>
+                <Link to={`/product/${_id}`} className={styles.card__title}>
                     {name}
                 </Link>
                 <div
-                    class={styles.card__add}
+                    className={styles.card__add}
                     onClick={() =>
-                        addToBasket({ id, name, price, full_background })
+                        addToBasket({ _id, name, price, full_background })
                     }
                 >
                     В корзину

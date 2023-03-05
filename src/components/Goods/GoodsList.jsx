@@ -10,7 +10,7 @@ function GoodsList() {
     return (
         <div className={styles.cards}>
             {goods.map((item) => (
-                <GoodsItem key={item.id} {...item} />
+                <GoodsItem key={item._id} {...item} />
             ))}
         </div>
     );

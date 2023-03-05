@@ -43,13 +43,13 @@ const shopSlice = createSlice({
         },
         addToCart(state, action) {
             const itemIndex = state.order.findIndex(
-                (orderItem) => orderItem.id === action.payload.id
+                (orderItem) => orderItem._id === action.payload._id
             );
             if (itemIndex < 0) {
                 state.order.push({ ...action.payload, quantity: 1 });
             } else {
                 state.order.map((orderItem) => {
-                    if (orderItem.id === action.payload.id) {
+                    if (orderItem._id === action.payload._id) {
                         orderItem.quantity++;
                         return orderItem;
                     } else {
@@ -60,7 +60,7 @@ const shopSlice = createSlice({
         },
         incQuantity(state, action) {
             state.order.map((orderItem) => {
-                if (orderItem.id === action.payload.id) {
+                if (orderItem._id === action.payload._id) {
                     orderItem.quantity++;
                     return orderItem;
                 } else {
@@ -70,7 +70,7 @@ const shopSlice = createSlice({
         },
         decQuantity(state, action) {
             state.order.map((orderItem) => {
-                if (orderItem.id === action.payload.id) {
+                if (orderItem._id === action.payload._id) {
                     if (orderItem.quantity > 1) {
                         orderItem.quantity--;
                     }
@@ -83,7 +83,7 @@ const shopSlice = createSlice({
 
         removeFromCart(state, action) {
             state.order = state.order.filter(
-                (el) => el.id !== action.payload.id
+                (el) => el._id !== action.payload._id
             );
         },
     },

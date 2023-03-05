@@ -11,7 +11,7 @@ function OrderList() {
     return (
         <ul className='collection'>
             {order.length ? (
-                order.map((item) => <CartItem key={item.id} {...item} />)
+                order.map((item) => <CartItem key={item._id} {...item} />)
             ) : (
                 <li className='collection-item'>Корзина пуста</li>
             )}

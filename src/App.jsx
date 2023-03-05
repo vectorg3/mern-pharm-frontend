@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsAuth } from './redux/slices/auth';
+import { useDispatch } from 'react-redux';
 import { fetchAuthMe } from './redux/slices/auth';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
@@ -9,9 +8,8 @@ import Registration from './pages/Registration';
 import CreateOrder from './pages/CreateOrder';
 import UserOrders from './pages/UserOrders';
 import { Shop } from './pages/Shop';
-import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
-import { Product } from './pages/Products';
+import { Product } from './pages/ProductPage/Product';
 import { NotFound } from './pages/NotFound';
 
 const App = () => {

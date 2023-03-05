@@ -5,7 +5,7 @@ import styles from './CartStyles.module.scss';
 
 function CartItem(props) {
     const dispatch = useDispatch();
-    const { id, name, full_background, price, quantity } = props;
+    const { _id, name, full_background, price, quantity } = props;
     return (
         <li className={ styles.cart__item}>
             <img
@@ -20,7 +20,7 @@ function CartItem(props) {
                     <span
                         className={styles.quantity__btn}
                         onClick={() => {
-                            dispatch(decQuantity({ id }));
+                            dispatch(decQuantity({ _id }));
                         }}
                     >
                         -
@@ -29,7 +29,7 @@ function CartItem(props) {
                     <span
                         className={styles.quantity__btn}
                         onClick={() => {
-                            dispatch(incQuantity({ id }));
+                            dispatch(incQuantity({ _id }));
                         }}
                     >
                         +
@@ -40,7 +40,7 @@ function CartItem(props) {
 
             <span
                 className={'secondary-content ' + styles.remove_item}
-                onClick={() => dispatch(removeFromCart({ id }))}
+                onClick={() => dispatch(removeFromCart({ _id }))}
             >
                 <i className={'material-icons ' + styles.cart_delete}>close</i>
             </span>

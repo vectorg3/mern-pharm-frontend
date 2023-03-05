@@ -12,7 +12,6 @@ import { Menu } from '../components/Header/Menu';
 const Shop = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector(selectIsAuth);
-    const order = useSelector((store) => store.shop.order);
     const loading = useSelector((store) => store.shop.loading);
     useEffect(function getGoods() {
         dispatch(fetchProducts());
@@ -20,7 +19,7 @@ const Shop = () => {
 
     return (
         <main className='container content'>
-            {isAuth ? <Cart quantity={order.length} /> : <></>}
+            {isAuth ? <Cart /> : <></>}
             {loading ? <Preloader /> : <GoodsList />}
             <CartList />
         </main>

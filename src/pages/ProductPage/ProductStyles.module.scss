@@ -1,0 +1,111 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+    margin: 250px auto auto;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 15px;
+    &__img {
+        display: block;
+        width: 50%;
+        max-height: 266px;
+        object-fit: contain;
+
+        margin-bottom: 2rem;
+    }
+    &__title {
+        font-size: 36px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        @media (max-width: 770px) {
+            font-size: 28px;
+        }
+        @media (max-width: 700px) {
+        }
+    }
+    &__description {
+        text-align: center;
+        font-size: 26px;
+        color: gray;
+        margin-bottom: 2rem;
+        @media (max-width: 770px) {
+            font-size: 20px;
+        }
+        @media (max-width: 700px) {
+        }
+    }
+    &__price {
+        font-size: 32px;
+        color: #7b68ee;
+        margin-bottom: 2rem;
+    }
+    &__add {
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: 17px;
+        color: #7b68ee;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #7b68ee;
+        border-radius: 4px;
+        cursor: pointer; /* Меняем курсор при наведении */
+        transition: 0.2s;
+        margin-top: auto; /* Прижимаем кнопку к низу карточки */
+        &:hover {
+            border: 1px solid #a299d7;
+            background-color: #a299d7;
+            color: #fff;
+        }
+        &:active {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    @media (max-width: 1024px) {
+        margin-top: 10rem;
+    }
+    @media (max-width: 770px) {
+        margin-top: 10rem;
+        width: 75%;
+    }
+    @media (max-width: 700px) {
+        width: 85%;
+    }
+}
+.analogues {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    &__item {
+        border: 2px solid #7b68ee;
+        border-radius: 15px;
+        width: 30%;
+        transition: 0.3s linear;
+        &:hover {
+            box-shadow: 6px 8px 16px rgba(245, 51, 255, 0.2);
+            transition: 0.3s linear;
+        }
+    }
+    &__title{
+        font-size: 22px;
+    }
+}
+.analogue {
+    &__img {
+        width: 100%;
+        height: 70%;
+        object-fit: contain;
+    }
+    &__title {
+        font-size: 20px;
+    }
+}

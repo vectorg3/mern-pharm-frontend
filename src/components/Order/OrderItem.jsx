@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { incQuantity, decQuantity } from '../../redux/slices/shop';
 function OrderItem(props) {
     const dispatch = useDispatch();
-    const { id, name, full_background, price, quantity } = props;
+    const { _id, name, full_background, price, quantity } = props;
     return (
         <li className='collection-item avatar cart__item'>
             <img src={full_background} alt='' class='circle' />
@@ -14,7 +14,7 @@ function OrderItem(props) {
                 <span
                     className='quantity__btn'
                     onClick={() => {
-                        dispatch(decQuantity({ id }));
+                        dispatch(decQuantity({ _id }));
                     }}
                 >
                     -
@@ -23,7 +23,7 @@ function OrderItem(props) {
                 <span
                     className='quantity__btn'
                     onClick={() => {
-                        dispatch(incQuantity({ id }));
+                        dispatch(incQuantity({ _id }));
                     }}
                 >
                     +
@@ -33,7 +33,7 @@ function OrderItem(props) {
 
             <span
                 className='secondary-content remove-item'
-                onClick={() => dispatch(removeFromCart({ id }))}
+                onClick={() => dispatch(removeFromCart({ _id }))}
             >
                 <i className='material-icons cart-delete'>close</i>
             </span>

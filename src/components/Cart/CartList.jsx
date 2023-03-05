@@ -24,7 +24,7 @@ function CartList() {
         >
             <li className={styles.cart__header}>Корзина</li>
             {order.length ? (
-                order.map((item) => <CartItem key={item.id} {...item} />)
+                order.map((item) => <CartItem key={item._id} {...item} />)
             ) : (
                 <li className={styles.cart__item}>Корзина пуста</li>
             )}
