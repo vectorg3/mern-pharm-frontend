@@ -99,11 +99,16 @@
 .cards {
     display: grid;
     /* Автоматически заполняем на всю ширину grid-контейнера */
-    grid-template-columns: repeat(auto-fill, 285px);
+    grid-template-columns: repeat(auto-fill, 25%);
     width: 100%;
     justify-content: center;
     justify-items: center; /* Размещаем карточку по центру */
     column-gap: 30px; /* Отступ между колонками */
     row-gap: 40px; /* Отступ между рядами */
-    margin: 0 auto;
+    @media(max-width: 1024px) {
+        grid-template-columns: repeat(auto-fill, 50%);
+    }
+    @media(max-width: 770px) {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
 }
