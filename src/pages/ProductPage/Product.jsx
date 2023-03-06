@@ -48,6 +48,7 @@ function Product() {
     useEffect(() => {
         axios
             .get(`${process.env.REACT_APP_API_URL}/products/${id}`)
+            // .get(`https://mern-pharm-back.onrender.com/products/${id}`)
             .then((res) => {
                 setProduct(res.data);
                 setLoading(false);
@@ -56,7 +57,7 @@ function Product() {
             .catch((err) => {
                 console.warn(err);
             });
-    }, []);
+    }, [id]);
     if (isLoading) {
         return <Preloader />;
     }
@@ -73,6 +74,7 @@ function Product() {
                     {product.description}
                 </div>
                 <div className={styles.product__price}>{product.price} ₽</div>
+                <div className={styles.analogues__title}>Аналоги:</div>
                 <div className={styles.analogues}>
                     {analogues.map((item) => (
                         <Link
