@@ -5,7 +5,7 @@ function UserOrderItem(props) {
     const { _id, address, phone, orderList, status } = props;
     return (
         <li className={styles.order__item}>
-            <div className={styles.cart__item_title}>Заказ {_id},</div>
+            <div className={styles.cart__item_title}>Заказ {_id}</div>
             <div>
                 {orderList.map((el) => (
                     <li className={styles.cart__item}>

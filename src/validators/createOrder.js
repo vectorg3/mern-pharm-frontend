@@ -1,6 +1,4 @@
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-const MySwal = withReactContent(Swal);
+import { MySwal } from "../alerts";
 export const createOrderValidate = (values, order) => {
     if (values.address.length < 5) {
         MySwal.fire({

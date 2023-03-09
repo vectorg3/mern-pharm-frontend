@@ -2,21 +2,16 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from '../redux/slices/auth';
 import { useForm } from 'react-hook-form';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import { fetchCreateOrder } from '../redux/slices/shop';
-import { Header } from '../components/Header/Header';
 import { useNavigate, Navigate } from 'react-router-dom';
-import { redirect } from 'react-router-dom';
 import { OrderList } from '../components/Order/OrderList';
 import { createOrderValidate } from '../validators/createOrder';
-import { Menu } from '../components/Header/Menu';
+import { MySwal } from '../alerts';
 
 const CreateOrder = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isAuth = useSelector(selectIsAuth);
-    const MySwal = withReactContent(Swal);
     const order = useSelector((store) => store.shop.order);
     const totalPrice = order.reduce((sum, el) => {
         return sum + el.price * el.quantity;

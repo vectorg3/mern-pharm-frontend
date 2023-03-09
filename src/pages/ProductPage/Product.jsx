@@ -1,6 +1,5 @@
 import axios from 'axios';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import {MySwal , Toast} from '../../alerts.js'
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Preloader } from '../../components/Preloader';
@@ -18,18 +17,6 @@ function Product() {
     const { id } = useParams();
     const isAuth = useSelector(selectIsAuth);
     const dispatch = useDispatch();
-    const MySwal = withReactContent(Swal);
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: false,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-        },
-    });
     const addToBasket = (item) => {
         if (isAuth) {
             dispatch(addToCart(item));

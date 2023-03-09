@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRegister, selectIsAuth } from '../redux/slices/auth';
 import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import { MySwal } from '../alerts';
 
 const Registration = () => {
-    const MySwal = withReactContent(Swal);
     const dispatch = useDispatch();
     const isAuth = useSelector(selectIsAuth);
     const {

@@ -1,28 +1,15 @@
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/slices/shop';
 import { selectIsAuth } from '../../redux/slices/auth';
 import { Link } from 'react-router-dom';
 import styles from './GoodStyles.module.scss';
+import { MySwal , Toast } from '../../alerts';
 
 function GoodsItem(props) {
     const isAuth = useSelector(selectIsAuth);
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: false,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-        },
-    });
-    const MySwal = withReactContent(Swal);
 
     const dispatch = useDispatch();
-    const { _id, name, description, price, full_background } = props;
+    const { _id, name, price, full_background } = props;
     const addToBasket = (item) => {
         if (isAuth) {
             dispatch(addToCart(item));

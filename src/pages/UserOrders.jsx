@@ -1,13 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Header } from '../components/Header/Header';
 import { fetchUserOrders } from '../redux/slices/shop';
 import { useEffect } from 'react';
 import { UserOrderItem } from '../components/Order/UserOrderItem';
 import { selectIsAuth } from '../redux/slices/auth';
 import { Navigate } from 'react-router-dom';
 import styles from '../components/Order/OrderStyles.module.scss';
-import { Menu } from '../components/Header/Menu';
+import {Preloader} from '../components/Preloader';
 
 const UserOrders = () => {
     const isAuth = useSelector(selectIsAuth);
@@ -26,10 +25,8 @@ const UserOrders = () => {
                             userOrders.map((item) => (
                                 <UserOrderItem key={item._id} {...item} />
                             ))
-                        ) : (
-                            <li className='collection-item'>
-                                Пока что заказов нет
-                            </li>
+                        ) : (   
+                                <Preloader />
                         )}
                     </div>
                 </>
